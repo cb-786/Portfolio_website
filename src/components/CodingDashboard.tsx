@@ -22,28 +22,20 @@ interface ContributionDay {
 }
 
 const CodingDashboard = () => {
-  // 1. UPDATED DEFAULT STATE: Matches your screenshot exactly
   const [leetcodeStats, setLeetcodeStats] = useState<LeetCodeStats>({
-    totalSolved: 503,
-    easySolved: 192,
-    mediumSolved: 278,
-    hardSolved: 33,
-    ranking: 375485,
+    totalSolved: 0,
+    easySolved: 0,
+    mediumSolved: 0,
+    hardSolved: 0,
+    ranking: 0,
     contributionPoints: 0,
-    ContestRating: 1607,
+    ContestRating: 0,
   });
 
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
-  const [gfgCount, setGfgCount] = useState<number>(236);
+  const [gfgCount, setGfgCount] = useState<number>(0);
+  const [ratingData, setRatingData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  
-  // 2. UPDATED GRAPH DATA: Realistic curve ending at your rating of 1392
-  const [ratingData, setRatingData] = useState<any[]>([
-    { date: 'Jan', rating: 1500 },
-    { date: 'Feb', rating: 1536 },
-    { date: 'Mar', rating: 1571 },
-    { date: 'Apr', rating: 1607 }
-]);
 
   const [ghError, setGhError] = useState<string | null>(null);
   const heatmapRef = useRef<HTMLDivElement | null>(null);
@@ -57,7 +49,6 @@ const CodingDashboard = () => {
 
   // --- Data Fetching ---
   useEffect(() => { 
-    // Fetch LeetCode stats
     const fetchLeetCodeStats = async () => {
       try {
         const gqlUrl = 'https://leetcode.com/graphql';
@@ -94,20 +85,19 @@ const CodingDashboard = () => {
           if (stat.difficulty === 'Hard') hard = stat.count;
         });
 
-        // Only update if we actually got valid data
         if (total > 0) {
-            setLeetcodeStats({
+          setLeetcodeStats({
             totalSolved: total,
             easySolved: easy,
             mediumSolved: medium,
             hardSolved: hard,
-            ranking: profile.ranking || leetcodeStats.ranking,
+            ranking: profile.ranking || 0,
             contributionPoints: 0,
-            ContestRating: Math.round(contestRanking.rating) || leetcodeStats.ContestRating,
-            });
+            ContestRating: Math.round(contestRanking.rating) || 0,
+          });
         }
       } catch (error) {
-        console.warn('Using fallback/screenshot data for LeetCode due to API restriction.');
+        console.warn('Could not fetch LeetCode stats:', error);
       }
     };
 
@@ -138,8 +128,22 @@ const CodingDashboard = () => {
       }
     };
 
+    const fetchGFGCount = async () => {
+      try {
+        const response = await fetch(`/api/gfg-count?user=${encodeURIComponent(GFG_USER)}`);
+        if (!response.ok) throw new Error('Failed to fetch GFG count');
+        const data = await response.json();
+        if (data.count) {
+          setGfgCount(data.count);
+        }
+      } catch (error) {
+        console.warn('Could not fetch GFG count:', error);
+      }
+    };
+
     fetchLeetCodeStats();
     fetchGitHubContributions();
+    fetchGFGCount();
   }, []);
 
   // --- Chart Logic ---
@@ -195,7 +199,7 @@ const CodingDashboard = () => {
     );
   };
 
-  const totalSolvedDisplayed = leetcodeStats.totalSolved + gfgCount;
+  const totalSolvedDisplayed = leetcodeStats.totalSolved;
 
   // 3. UPDATED BADGE: Now shows "100 Days Badge 2025" with correct image
   const statCards = [
