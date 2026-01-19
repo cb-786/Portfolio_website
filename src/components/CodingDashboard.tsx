@@ -24,13 +24,13 @@ interface ContributionDay {
 const CodingDashboard = () => {
   // 1. UPDATED DEFAULT STATE: Matches your screenshot exactly
   const [leetcodeStats, setLeetcodeStats] = useState<LeetCodeStats>({
-    totalSolved: 317,
-    easySolved: 98,
-    mediumSolved: 190,
-    hardSolved: 29,
-    ranking: 389282,
+    totalSolved: 503,
+    easySolved: 192,
+    mediumSolved: 278,
+    hardSolved: 33,
+    ranking: 375485,
     contributionPoints: 0,
-    ContestRating: 1392,
+    ContestRating: 1607,
   });
 
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
@@ -39,17 +39,11 @@ const CodingDashboard = () => {
   
   // 2. UPDATED GRAPH DATA: Realistic curve ending at your rating of 1392
   const [ratingData, setRatingData] = useState<any[]>([
-    { date: 'Jan', rating: 1250 },
-    { date: 'Feb', rating: 1280 },
-    { date: 'Mar', rating: 1310 },
-    { date: 'Apr', rating: 1290 },
-    { date: 'May', rating: 1340 },
-    { date: 'Jun', rating: 1360 },
-    { date: 'Jul', rating: 1350 },
-    { date: 'Aug', rating: 1380 },
-    { date: 'Sep', rating: 1375 },
-    { date: 'Oct', rating: 1392 }, 
-  ]);
+    { date: 'Jan', rating: 1500 },
+    { date: 'Feb', rating: 1536 },
+    { date: 'Mar', rating: 1571 },
+    { date: 'Apr', rating: 1607 }
+]);
 
   const [ghError, setGhError] = useState<string | null>(null);
   const heatmapRef = useRef<HTMLDivElement | null>(null);
