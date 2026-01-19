@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code2, Trophy, TrendingUp, Target, GithubIcon, Medal } from "lucide-react";
 import CalendarHeatmap from "react-calendar-heatmap";
@@ -22,139 +22,50 @@ interface ContributionDay {
 }
 
 const CodingDashboard = () => {
-  const [leetcodeStats, setLeetcodeStats] = useState<LeetCodeStats>({
-    totalSolved: 0,
-    easySolved: 0,
-    mediumSolved: 0,
-    hardSolved: 0,
-    ranking: 0,
+  // 1. HARDCODED STATS (From your Screenshots)
+  const [leetcodeStats] = useState<LeetCodeStats>({
+    totalSolved: 562,    // From Image 1
+    easySolved: 100,     // From Image 1
+    mediumSolved: 196,   // From Image 1
+    hardSolved: 30,      // From Image 1
+    ranking: 375485,
     contributionPoints: 0,
-    ContestRating: 0,
+    ContestRating: 1607, // Kept as requested
   });
 
-  const [contributions, setContributions] = useState<ContributionDay[]>([]);
-  const [gfgCount, setGfgCount] = useState<number>(0);
-  const [ratingData, setRatingData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [gfgCount] = useState<number>(236); // From Image 2
 
-  const [ghError, setGhError] = useState<string | null>(null);
-  const heatmapRef = useRef<HTMLDivElement | null>(null);
+  // 2. HARDCODED GRAPH DATA
+  const [ratingData] = useState<any[]>([
+    { date: 'Jan', rating: 1500 },
+    { date: 'Feb', rating: 1536 },
+    { date: 'Mar', rating: 1571 },
+    { date: 'Apr', rating: 1607 }
+  ]);
 
+  // Placeholder for GitHub (API removed)
+  const [contributions] = useState<ContributionDay[]>([]);
+  
   // --- Configuration ---
-  const LEETCODE_USER = (import.meta as any).env?.VITE_LEETCODE_USERNAME || 'Chirag_bansal192005';
-  const GITHUB_USER = (import.meta as any).env?.VITE_GITHUB_USERNAME || 'cb-786';
-  const GFG_USER = (import.meta as any).env?.VITE_GFG_USERNAME || 'chiragbansv1qd';
-  const CODECHEF_USER = (import.meta as any).env?.VITE_CODECHEF_USERNAME || 'c_bansal';
-  const CODEFORCES_USER = (import.meta as any).env?.VITE_CODEFORCES_USERNAME || 'cbansal';
-
-  // --- Data Fetching ---
-  useEffect(() => { 
-    const fetchLeetCodeStats = async () => {
-      try {
-        const gqlUrl = 'https://leetcode.com/graphql';
-        const query = `
-          query fullUserData($username: String!) {
-            matchedUser(username: $username) {
-              profile { ranking }
-              submitStats {
-                acSubmissionNum { difficulty count }
-              }
-            }
-            userContestRanking(username: $username) { rating }
-          }
-        `;
-        
-        const response = await fetch(gqlUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ query, variables: { username: LEETCODE_USER } })
-        });
-        
-        if (!response.ok) throw new Error("Network response was not ok");
-        
-        const data = await response.json();
-        const submitStats = data?.data?.matchedUser?.submitStats?.acSubmissionNum || [];
-        const contestRanking = data?.data?.userContestRanking || {};
-        const profile = data?.data?.matchedUser?.profile || {};
-
-        let easy = 0, medium = 0, hard = 0, total = 0;
-        submitStats.forEach((stat: any) => {
-          if (stat.difficulty === 'All') total = stat.count;
-          if (stat.difficulty === 'Easy') easy = stat.count;
-          if (stat.difficulty === 'Medium') medium = stat.count;
-          if (stat.difficulty === 'Hard') hard = stat.count;
-        });
-
-        if (total > 0) {
-          setLeetcodeStats({
-            totalSolved: total,
-            easySolved: easy,
-            mediumSolved: medium,
-            hardSolved: hard,
-            ranking: profile.ranking || 0,
-            contributionPoints: 0,
-            ContestRating: Math.round(contestRanking.rating) || 0,
-          });
-        }
-      } catch (error) {
-        console.warn('Could not fetch LeetCode stats:', error);
-      }
-    };
-
-    // Fetch GitHub contributions
-    const fetchGitHubContributions = async () => {
-      try {
-        setGhError(null);
-        const githubUrl = `https://github-contributions-api.deno.dev/${GITHUB_USER}.json`;
-        const response = await fetch(githubUrl);
-        if (!response.ok) throw new Error(`Status ${response.status}`);
-        const data = await response.json();
-
-        let rawContribs: any[] = [];
-        if (Array.isArray(data.contributions)) {
-            rawContribs = data.contributions.some(Array.isArray) ? (data.contributions as any[]).flat() : data.contributions;
-        }
-
-        const formattedContributions = (rawContribs || []).map((contrib: any) => ({
-          date: contrib.date,
-          count: contrib.count ?? contrib.contributionCount ?? 0,
-        }));
-
-        setContributions(formattedContributions);
-      } catch (error: any) {
-        setGhError("Could not load GitHub graph");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    const fetchGFGCount = async () => {
-      try {
-        const response = await fetch(`/api/gfg-count?user=${encodeURIComponent(GFG_USER)}`);
-        if (!response.ok) throw new Error('Failed to fetch GFG count');
-        const data = await response.json();
-        if (data.count) {
-          setGfgCount(data.count);
-        }
-      } catch (error) {
-        console.warn('Could not fetch GFG count:', error);
-      }
-    };
-
-    fetchLeetCodeStats();
-    fetchGitHubContributions();
-    fetchGFGCount();
-  }, []);
+  // (Usernames kept for links only)
+  const LEETCODE_USER = 'Chirag_bansal192005';
+  const GITHUB_USER = 'cb-786';
+  const GFG_USER = 'chiragbansv1qd';
+  const CODECHEF_USER = 'c_bansal';
+  const CODEFORCES_USER = 'cbansal';
 
   // --- Chart Logic ---
   const _leetEasy = leetcodeStats.easySolved;
   const _leetMed = leetcodeStats.mediumSolved;
   const _leetHard = leetcodeStats.hardSolved;
   
-  // Distribute GFG count evenly across difficulties for the visual pie chart
-  const gfgEasy = Math.floor(gfgCount / 3);
-  const gfgMed = Math.floor(gfgCount / 3);
-  const gfgHard = gfgCount - (gfgEasy + gfgMed);
+  // Custom GFG Breakdown based on your screenshot:
+  // Image 2: School(2) + Basic(48) + Easy(94) = 144
+  // Image 2: Medium(88)
+  // Image 2: Hard(4)
+  const gfgEasy = 144; 
+  const gfgMed = 88;
+  const gfgHard = 4;
 
   const problemData = [
     { name: 'Easy', value: _leetEasy + gfgEasy, color: 'hsl(var(--chart-1))' },
@@ -176,7 +87,6 @@ const CodingDashboard = () => {
         className="group inline-flex items-center gap-3 bg-card border border-border/60 hover:border-primary/60 hover:shadow-xl transition transform hover:-translate-y-1 px-3 py-2 rounded-lg"
       >
         <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-muted/40 to-muted/10 ring-1 ring-transparent group-hover:ring-primary/30">
-            {/* Simple fallback logic for icons */}
             {name === 'GitHub' ? <GithubIcon className="w-5 h-5"/> : 
              logo ? <img src={`/icons/${logo}`} alt={name} className="w-5 h-5 object-contain" onError={(e) => e.currentTarget.style.display='none'} /> :
              <Code2 className="w-5 h-5"/>
@@ -199,9 +109,9 @@ const CodingDashboard = () => {
     );
   };
 
-  const totalSolvedDisplayed = leetcodeStats.totalSolved;
+  // Total calculation
+  const totalSolvedDisplayed = leetcodeStats.totalSolved; // Only showing LeetCode total in the main card per previous logic
 
-  // 3. UPDATED BADGE: Now shows "100 Days Badge 2025" with correct image
   const statCards = [
     {
       title: "Total Questions Solved",
@@ -218,7 +128,6 @@ const CodingDashboard = () => {
     {
       title: "Latest Achievement",
       value: "100 Days Badge 2025",
-      // Using official LeetCode badge image URL
       img: "https://assets.leetcode.com/static_assets/marketing/2025-100-days-badge.png", 
       icon: Medal,
       color: "text-orange-500",
@@ -231,8 +140,6 @@ const CodingDashboard = () => {
       color: "text-green-500",
     },
   ];
-
-  if (loading) return <div className="py-20 text-center animate-pulse">Loading dashboard...</div>;
 
   return (
     <section className="py-20 px-6 bg-gradient-to-b from-background to-muted/20" id="coding-dashboard">
@@ -279,7 +186,6 @@ const CodingDashboard = () => {
                             className="w-12 h-12 object-contain" 
                         />
                     ) : null}
-                    {/* Fallback Icon if image fails or isn't provided */}
                     <stat.icon className={`w-8 h-8 ${stat.color} ${stat.img ? 'hidden' : ''}`} />
                     </div>
                 </CardContent>
@@ -375,7 +281,7 @@ const CodingDashboard = () => {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="overflow-x-auto" ref={heatmapRef}>
+            <div className="overflow-x-auto">
               <div className="min-w-[700px]">
                 <CalendarHeatmap
                   startDate={new Date(new Date().setFullYear(new Date().getFullYear() - 1))}
@@ -390,11 +296,6 @@ const CodingDashboard = () => {
                 />
               </div>
             </div>
-            {ghError && (
-               <div className="mt-4 text-sm text-red-400">
-                  {ghError}. <button onClick={() => window.location.reload()} className="underline">Retry</button>
-               </div>
-            )}
             
             <style>{`
               .react-calendar-heatmap .color-empty { fill: hsl(var(--muted) / 0.3); }
