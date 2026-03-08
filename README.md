@@ -10,7 +10,7 @@
 
 ## 🌟 Live Demo
 
-**[View Live Portfolio →]([https://chirag.dev](https://chiragdev-kappa.vercel.app/))**
+<b><a href="https://chiragdev-kappa.vercel.app/">View Live Portfolio →</a></b>
 
 ---
 
