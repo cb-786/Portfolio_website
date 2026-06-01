@@ -270,3 +270,23 @@ const CodingDashboard = () => {
               <Github className="w-5 h-5 text-primary" />
               GitHub Contributions
             </CardTitle>
+          </CardHeader>
+          <CardContent className="flex justify-center overflow-x-auto pb-4">
+            <div className="min-w-fit p-2">
+              <GitHubCalendar 
+                username={GITHUB_USER}
+                blockSize={14}
+                blockMargin={4}
+                fontSize={12}
+                colorScheme="light" 
+              />
+            </div>
+          </CardContent>
+        </Card>
+
+      </div>
+    </section>
+  );
+};
+
+export default CodingDashboard;
