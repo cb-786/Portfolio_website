@@ -95,17 +95,17 @@ const Hero = () => {
               </div>
             ) : (
               <span className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium uppercase tracking-wide">
-                Full Stack Developer & ML Researcher
+                Full Stack Developer & AI Engineer
               </span>
             )}
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Full-Stack Development meets Machine Learning
+            Full-Stack Architecture meets Applied AI
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-lg">
-            Hi, I'm <span className="text-foreground font-medium">Chirag Bansal</span>. <br></br>BE Computer Engineering student at Thapar Institute (CGPA 8.88/10.0) building scalable web platforms and ML solutions. Passionate about solving real-world problems with clean code and intelligent systems.
+            Hi, I'm <span className="text-foreground font-medium">Chirag Bansal</span>. <br></br>BE Computer Engineering student at Thapar Institute (CGPA 8.88/10.0) building highly scalable web platforms and advanced AI pipelines. Passionate about leveraging GraphRAG, local LLMs, and clean system design to solve complex real-world problems.
           </p>
 
           <div className="flex flex-wrap gap-4">
