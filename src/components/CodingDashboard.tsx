@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code2, Trophy, TrendingUp, Target, GithubIcon, Medal } from "lucide-react";
-import CalendarHeatmap from "react-calendar-heatmap";
-import "react-calendar-heatmap/dist/styles.css";
+import { Code2, Trophy, TrendingUp, Target, Github, Medal } from "lucide-react";
+import GitHubCalendar from 'react-github-calendar';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Sector } from "recharts";
 
 // --- Types ---
@@ -14,11 +13,6 @@ interface LeetCodeStats {
   ranking: number;
   contributionPoints: number;
   ContestRating: number;
-}
-
-interface ContributionDay {
-  date: string;
-  count: number;
 }
 
 const CodingDashboard = () => {
@@ -42,9 +36,6 @@ const CodingDashboard = () => {
     { date: 'Mar', rating: 1571 },
     { date: 'Apr', rating: 1607 }
   ]);
-
-  // Placeholder for GitHub (API removed)
-  const [contributions] = useState<ContributionDay[]>([]);
   
   // --- Configuration ---
   // (Usernames kept for links only)
@@ -87,7 +78,7 @@ const CodingDashboard = () => {
         className="group inline-flex items-center gap-3 bg-card border border-border/60 hover:border-primary/60 hover:shadow-xl transition transform hover:-translate-y-1 px-3 py-2 rounded-lg"
       >
         <div className="flex items-center justify-center w-9 h-9 rounded-md bg-gradient-to-br from-muted/40 to-muted/10 ring-1 ring-transparent group-hover:ring-primary/30">
-            {name === 'GitHub' ? <GithubIcon className="w-5 h-5"/> : 
+            {name === 'GitHub' ? <Github className="w-5 h-5"/> : 
              logo ? <img src={`/icons/${logo}`} alt={name} className="w-5 h-5 object-contain" onError={(e) => e.currentTarget.style.display='none'} /> :
              <Code2 className="w-5 h-5"/>
             }
@@ -273,43 +264,9 @@ const CodingDashboard = () => {
         </div>
 
         {/* GitHub Contributions */}
-        <Card className="border-muted/40 hover:shadow-xl transition-shadow">
+        <Card className="border-muted/40 hover:shadow-xl transition-shadow overflow-hidden">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <GithubIcon className="w-5 h-5 text-primary" />
+              <Github className="w-5 h-5 text-primary" />
               GitHub Contributions
             </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="overflow-x-auto">
-              <div className="min-w-[700px]">
-                <CalendarHeatmap
-                  startDate={new Date(new Date().setFullYear(new Date().getFullYear() - 1))}
-                  endDate={new Date()}
-                  values={contributions}
-                  classForValue={(value) => {
-                    if (!value || value.count === 0) return 'color-empty';
-                    return `color-scale-${Math.min(Math.ceil(value.count / 2), 4)}`;
-                  }}
-                  titleForValue={(value) => value ? `${value.date}: ${value.count} contributions` : ''}
-                  showWeekdayLabels
-                />
-              </div>
-            </div>
-            
-            <style>{`
-              .react-calendar-heatmap .color-empty { fill: hsl(var(--muted) / 0.3); }
-              .react-calendar-heatmap .color-scale-1 { fill: hsl(var(--primary) / 0.3); }
-              .react-calendar-heatmap .color-scale-2 { fill: hsl(var(--primary) / 0.5); }
-              .react-calendar-heatmap .color-scale-3 { fill: hsl(var(--primary) / 0.7); }
-              .react-calendar-heatmap .color-scale-4 { fill: hsl(var(--primary)); }
-              .react-calendar-heatmap text { fill: hsl(var(--muted-foreground)); font-size: 10px; }
-            `}</style>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
-  );
-};
-
-export default CodingDashboard;
