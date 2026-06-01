@@ -38,7 +38,7 @@ export const projectsData: Project[] = [
     title: "GovIntel.AI - Enterprise Semantic Search",
     description: "An AI-powered semantic search engine utilizing GraphRAG to map multimodal inputs directly to NIC codes.",
     fullDescription: "Architected an unprecedented, highly scalable AI-powered semantic search engine utilizing cutting-edge GraphRAG memory retrieval architectures for instantaneous data synthesis. Engineered a state-of-the-art multimodal ingestion pipeline capable of flawlessly mapping complex, unstructured speech and text inputs directly to National Industrial Classification (NIC) codes with near-zero latency and supreme predictive accuracy.",
-    image: "/projects/govintel_main.png",
+    image: "/projects/graphrag.jpg",
     images: [
       "/projects/graphrag.jpg",
       "/projects/govintel_arch.png"
