@@ -34,6 +34,94 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: "govintel-ai",
+    title: "GovIntel.AI - Enterprise Semantic Search",
+    description: "An AI-powered semantic search engine utilizing GraphRAG to map multimodal inputs directly to NIC codes.",
+    fullDescription: "Architected an unprecedented, highly scalable AI-powered semantic search engine utilizing cutting-edge GraphRAG memory retrieval architectures for instantaneous data synthesis. Engineered a state-of-the-art multimodal ingestion pipeline capable of flawlessly mapping complex, unstructured speech and text inputs directly to National Industrial Classification (NIC) codes with near-zero latency and supreme predictive accuracy.",
+    image: "/projects/graphrag.jpg",
+    images: [
+      "/projects/graphrag.jpg",
+      "/projects/govintel_arch.png"
+    ],
+    tags: ["Python", "AI", "GraphRAG", "LLMs", "Semantic Search"],
+    techStack: ["Python", "GraphRAG", "Ollama", "Local LLMs", "Vector Database", "Speech-to-Text API"],
+    category: "ai-ml",
+    featured: true,
+    githubUrl: "https://github.com/cb-786/GRAPHRAG-ENTERPRISE", // TODO: Add GitHub URL
+    
+    features: [
+      "Advanced GraphRAG memory retrieval architecture for deep data synthesis",
+      "Multimodal ingestion pipeline processing both speech and text inputs",
+      "Automated, highly accurate mapping to National Industrial Classification (NIC) codes",
+      "Local LLM orchestration for secure and private data processing",
+      "Zero-latency processing optimized for enterprise-grade scalability"
+    ],
+    challenges: [
+      "Designing an efficient GraphRAG architecture to handle complex entity relationships without bottlenecking retrieval speed",
+      "Processing and normalizing noisy, unstructured multimodal inputs (especially speech transcripts)",
+      "Ensuring high predictive accuracy across thousands of highly specific NIC code categories",
+      "Optimizing local LLM inference to achieve instantaneous search results"
+    ],
+    metrics: [
+      {
+        value: "Multimodal",
+        label: "Input Support",
+        description: "Seamlessly processes unstructured speech and text"
+      },
+      {
+        value: "Zero-Latency",
+        label: "Processing Speed",
+        description: "Highly optimized retrieval and classification pipeline"
+      },
+      {
+        value: "GraphRAG",
+        label: "Retrieval Architecture",
+        description: "Knowledge graph-augmented generation"
+      }
+    ],
+    implementation: {
+      approach: "Built a sophisticated ingestion pipeline that accepts unstructured text and speech. The input is processed through local LLMs utilizing a GraphRAG architecture to understand deep contextual relationships and industry terminologies, ultimately outputting highly accurate NIC code classifications.",
+      technologies: [
+        {
+          name: "GraphRAG",
+          reason: "Enables deep, structured memory retrieval for complex contextual understanding beyond standard vector search"
+        },
+        {
+          name: "Ollama & Local LLMs",
+          reason: "Core intelligence for natural language processing, ensuring data privacy and fast local inference"
+        },
+        {
+          name: "Python",
+          reason: "Primary backend ecosystem for AI orchestration, data ingestion, and pipeline management"
+        }
+      ]
+    },
+    architecture: `Multimodal Input (Speech/Text)
+        ↓
+Ingestion & Normalization Pipeline
+        ↓
+GraphRAG Engine (Entity Extraction & Knowledge Graph)
+        ↓
+LLM Processing & Contextual Matching
+        ↓
+NIC Code Classification Output`,
+    documentation: {
+      setup: `# Clone the repository
+git clone [YOUR_REPO_URL]
+cd govintel-ai
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Ensure Ollama is running locally with the required models
+ollama serve
+
+# Run the API server
+uvicorn main:app --reload`,
+      usage: `Submit an industry description via text or audio file to the API endpoint to receive the corresponding standardized NIC code and confidence score.`
+    }
+  },
+  {
     id: "stock-trading-platform",
     title: "Full-Stack Stock Trading Platform",
     description: "A responsive trading platform featuring real-time market watchlists and portfolio analytics.",

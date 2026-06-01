@@ -95,17 +95,17 @@ const Hero = () => {
               </div>
             ) : (
               <span className="bg-black text-white px-6 py-2 rounded-full text-sm font-medium uppercase tracking-wide">
-                Full Stack Developer & ML Researcher
+                Full Stack Developer & AI Engineer
               </span>
             )}
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Full-Stack Development meets Machine Learning
+            Full-Stack Architecture meets Applied AI
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-lg">
-            Hi, I'm <span className="text-foreground font-medium">Chirag Bansal</span>. <br></br>BE Computer Engineering student at Thapar Institute (CGPA 8.88/10.0) building scalable web platforms and ML solutions. Passionate about solving real-world problems with clean code and intelligent systems.
+            Hi, I'm <span className="text-foreground font-medium">Chirag Bansal</span>. <br></br>BE Computer Engineering student at Thapar Institute (CGPA 8.88/10.0) building highly scalable web platforms and advanced AI pipelines. Passionate about leveraging GraphRAG, local LLMs, and clean system design to solve complex real-world problems.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -126,7 +126,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="rounded-full gap-2 px-8 py-6 text-base font-medium border-2 border-black dark:border-white hover:bg-black hover:text-white hover:border-white dark:hover:bg-white dark:hover:text-black dark:hover:border-black"
-              onClick={() => window.open('https://drive.google.com/file/d/1wE4Jma5CiPiqcDV-P76njZRmcXRSu2fP/view?usp=sharing', '_blank')}
+              onClick={() => window.open('https://drive.google.com/file/d/1hEO5lhU6Fop6uguqTnnXk4bPXfOkTgpe/view', '_blank')}
             >
               View Resume
               <Download className="w-5 h-5" />
