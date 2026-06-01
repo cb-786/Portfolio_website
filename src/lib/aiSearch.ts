@@ -10,46 +10,50 @@ LeetCode: leetcode.com/u/Chirag_bansal192005/
 GeeksforGeeks: geeksforgeeks.org/profile/chiragbansv1qd
 
 PROFESSIONAL SUMMARY:
-Bachelor of Engineering student in Computer Engineering with a strong foundation in Full-Stack Development and Machine Learning research. Experienced in leading research teams and developing complex web applications. 
+Bachelor of Engineering student in Computer Engineering specializing in Full-Stack Development, Advanced AI Architectures (GraphRAG), and Machine Learning research. Experienced in team leadership and building scalable, data-driven pipelines.
 
 WORK EXPERIENCE:
-1. Research Team Leader & ELC Intern — Thapar Institute (Aug 2023 – Present)
-   - Led a 4-member interdisciplinary team through a 6-week intensive research program.
-   - Co-authored and submitted the research paper "Comparative Evaluation of Machine Learning and Deep Learning Techniques for EEG-based ADHD Detection".
-   - Presented findings to a college-wide audience, demonstrating superior model accuracy (95.83%) compared to existing literature.
+1. Research Team Leader & ELC Intern — Thapar Institute (Jun 2025 – Jul 2025)
+   - Led a 4-member interdisciplinary team through a 6-week intensive research program focused on EEG-based ADHD detection.
+   - Co-authored and submitted a peer-reviewed research paper comparing ML and DL models, surpassing existing literature accuracy benchmarks.
+   - Handled project timelines and technical synchronization across cross-functional research domains.
 
 TECHNICAL SKILLS:
 Programming Languages:
-- C++, Python, JavaScript, SQL, HTML, CSS
+- C++, Python, JavaScript, SQL, MATLAB
+Web Technologies:
+- HTML, CSS, React, Node.js, Express.js
 Frameworks & Libraries:
-- React, Node.js, Express.js, Spring, Hibernate
-- NumPy, Pandas, Scikit-learn
+- GraphRAG, Spring, Hibernate, NumPy, Pandas, Scikit-learn
 Databases:
 - MongoDB, MySQL, PostgreSQL, Oracle
-Cloud & Tools:
-- AWS, GitHub, VS Code, Jupyter Notebook
+AI Tools & Developer Utilities:
+- Cursor, Claude Code, GitHub Copilot, Ollama, Google AI Studio
+Tools, Platforms & Concepts:
+- Linux (Arch), Git, GitHub, VS Code, Jupyter Notebook
+- Data Structures & Algorithms (DSA), OOP, DBMS, Operating Systems, Full-Stack Development
 
 PROJECT PORTFOLIO:
-1. Full-Stack Stock Trading Platform
-   - Tech: React, Node.js, Express.js, MongoDB, Bootstrap
-   - Built a responsive trading platform with real-time market watchlists and portfolio views.
-   - Engineered RESTful API backend with secure authentication (bcryptjs).
-   - Implemented CRUD operations and Portfolio analytics using Chart.js.
-2. EEG Signal Classification Pipeline (ADHD Detection)
-   - Tech: Python, NumPy, Pandas, Scikit-learn
-   - Developed an ML pipeline using EEG signals from 121 children.
-   - Extracted 760 features across 19 EEG channels (time/frequency-domain).
-   - Achieved 95.83% accuracy using GPC, Random Forest, SVM, and MLP models.
+1. GovIntel.AI - Enterprise Semantic Search Engine
+   - Tech: Python, GraphRAG, Ollama, Local LLMs, Vector Databases
+   - Architected a highly scalable AI search engine deploying GraphRAG memory retrieval for instant data synthesis.
+   - Engineered a multimodal ingestion pipeline mapping unstructured speech and text directly to National Industrial Classification (NIC) codes with near-zero latency.
+2. Full-Stack Stock Trading Platform
+   - Tech: React, Node.js, Express.js, MongoDB, Bootstrap, Chart.js
+   - Built an institutional-grade stock trading ecosystem with real-time watchlists and comprehensive portfolio analytics.
+   - Engineered a robust backend API infrastructure featuring secure token-based authentication (JWT + bcryptjs).
+3. EEG Signal Classification Pipeline (ADHD Detection)
+   - Tech: Python, NumPy, Pandas, Scikit-learn, SciPy
+   - Single-handedly developed a machine learning pipeline analyzing multi-channel EEG signals from 121 pediatric subjects.
+   - Extracted 760 spatial-domain and morphological features across 19 channels, achieving a benchmark-shattering 99.23% validation accuracy.
 
 ACHIEVEMENTS & SCHOLARSHIPS:
-- Reliance Foundation Undergraduate Scholar (Ranked top 100,000+ applicants).
-- Merit-Based Scholarship recipient (Top 50 in Computer Engineering branch).
-- LeetCode: 300+ Problems Solved (Rank ~389,000, Rating 1392).
-- GeeksforGeeks: 180+ Problems Solved.
-- 100 Days Badge 2025 (LeetCode).
-
-ADDITIONAL INFORMATION:
-Soft Skills: Problem-solving, Team Leadership, Research, Analytical Thinking.
+- Reliance Foundation Undergraduate Scholar (Selected among 100,000+ national applicants).
+- Merit-Based Scholarship recipient (Ranked in the top 50 of the Computer Engineering branch at Thapar).
+- LeetCode: Solved 300+ DSA problems (Peak Contest Rating: 1607).
+- Codeforces: Active competitive programmer holding the Pupil title (Peak Rating: 1306).
+- CodeChef: Rated contest participant (Rating: 1259).
+- GeeksforGeeks: Solved 200+ fundamental coding problems.
 `;
 
 interface GeminiResponse {
@@ -64,17 +68,20 @@ interface GeminiResponse {
 
 // Fallback responses for common queries when AI fails
 const fallbackResponses: Record<string, string> = {
-  "work style": "I am a research-oriented developer who values precision and collaboration. My experience leading a research team at Thapar Institute taught me how to manage timelines and interdisciplinary responsibilities effectively.",
-  "experience": "I currently serve as a Research Team Leader & ELC Intern at Thapar Institute, where I led a team to publish research on EEG-based ADHD detection, achieving 95.83% model accuracy.",
-  "skills": "I specialize in Full-Stack Development (MERN Stack, Spring/Hibernate) and Machine Learning (Python, Scikit-learn). I'm also proficient in C++ and SQL, with strong CS fundamentals.",
-  "education": "I am pursuing a Bachelor of Engineering in Computer Engineering at Thapar Institute of Engineering and Technology with a current CGPA of 8.88/10.0.",
-  "projects": "My key projects include a Full-Stack Stock Trading Platform (React/Node.js) featuring real-time analytics, and a high-accuracy EEG Signal Classification Pipeline for ADHD detection.",
-  "contact": "You can reach me via email at chiragbansal192005@gmail.com or connect with me on LinkedIn at linkedin.com/in/aspiring-chirag-bansal-.",
-  "achievements": "I am a Reliance Foundation Scholar and a Merit Scholarship recipient (Top 50 in branch). I've solved 300+ problems on LeetCode and earned the 100 Days Badge 2025.",
-  "leadership": "As a Research Team Leader, I guided a 4-member team through a 6-week intensive research program, culminating in a research paper submission and college-wide presentation.",
-  "availability": "I am currently open to internship opportunities in Full Stack Development and Machine Learning roles.",
-  "text": "You can connect with me on LinkedIn (linkedin.com/in/aspiring-chirag-bansal-) or check out my code on GitHub (github.com/cb-786).",
-  "contact information": "Feel free to email me at chiragbansal192005@gmail.com or find me on LinkedIn.",
+  "work style": "I am an AI-driven, research-oriented engineer combining deep algorithmic foundation with modern tools like Cursor and Claude Code to deliver high-performance solutions.",
+  "experience": "I served as a Research Team Leader at Thapar Institute, steering a 4-member team to build a high-accuracy EEG-based ADHD detection system and co-authoring a research paper.",
+  "skills": "I specialize in Full-Stack development (MERN, Spring), AI engineering (GraphRAG, Local LLMs via Ollama), and Advanced Machine Learning pipelines using Python, Linux (Arch), and C++.",
+  "education": "I am pursuing a Bachelor of Engineering in Computer Engineering at Thapar Institute of Engineering and Technology, maintaining an excellent CGPA of 8.88/10.0.",
+  "projects": "My flagship work includes GovIntel.AI (a multimodal GraphRAG search engine mapping text/speech to NIC codes) and an institutional-grade Full-Stack Stock Trading Platform.",
+  "contact": "You can absolutely reach me via email at chiragbansal192005@gmail.com or securely connect via my professional LinkedIn at linkedin.com/in/aspiring-chirag-bansal-.",
+  "achievements": "I'm a national Reliance Foundation Scholar, rank in the top 50 of my engineering branch, and compete actively in CP with a 1607 LeetCode and 1306 Codeforces Pupil rating.",
+  "leadership": "As a Research Team Leader at Thapar, I guided a 4-member cross-functional group through complex dataset management, paper submission, and technical presentation milestones.",
+  "availability": "I am actively looking for software engineering and AI/ML internship opportunities for the upcoming placement drive starting after June.",
+  "text": "Feel free to review my complete open-source code repositories directly on my GitHub profile (github.com/cb-786) or view my professional portfolio layout.",
+  "contact information": "Please drop an email directly to chiragbansal192005@gmail.com or hit me up on LinkedIn for any opportunities or technical discussion.",
+  "govintel": "GovIntel.AI is an enterprise semantic search engine I built using GraphRAG and local LLMs to seamlessly parse unstructured text or speech and classify it into standard NIC codes.",
+  "graphrag": "I implement GraphRAG configurations locally using Ollama and structural knowledge graphs to deliver deep context-aware synthesis that traditional vector search systems cannot achieve.",
+  "linux": "I manage my entire development environment on an Arch Linux distribution using advanced terminal workflows and highly-optimized system tiling for optimal resource usage."
 };
 
 function getFallbackResponse(query: string): string | null {
@@ -236,10 +243,8 @@ Remember: You are representing a professional developer's portfolio. Your respon
       console.error("All Gemini keys failed", lastErrorText);
       const fallback = getFallbackResponse(query);
       if (fallback) return fallback;
-      return `I apologize, but I'm having trouble processing your query at the moment. Please try again or rephrase your question.`;
+      return `I apologize, but I'm having trouble processing your query at the moment. Please try again or rephrase your question Simon.`;
     }
-
-    
 
     let text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
 
@@ -276,7 +281,9 @@ export function isHardcodedQuery(query: string): boolean {
     "theme",
     "cv",
     "github",
-    "linkedin"
+    "linkedin",
+    "govintel",
+    "graphrag"
   ];
 
   const lowerQuery = query.toLowerCase().trim();

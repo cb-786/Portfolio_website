@@ -4,44 +4,42 @@ const About = () => {
   const { ref: aboutRef, isVisible: aboutVisible } = useScrollAnimation();
   
   const skills = {
-    fullstack: [
-      "C++",
-      "Python", 
+    ai_engineering: [
+      "GraphRAG",
+      "Local LLMs & Ollama",
+      "Vector Databases",
+      "Semantic Search",
+      "Multimodal Ingestion",
+      "Scikit-learn",
+      "PyTorch",
+      "Signal Processing",
+    ],
+    software: [
+      "Python",
+      "C++", 
       "JavaScript",
       "React",
       "Node.js",
       "Express.js",
       "MongoDB",
-      "Data Structures",
-      "Algorithms",
-      "REST API Design",
-    ],
-    ml: [
-      "Scikit-learn",
-      "PyTorch",
-      "TensorFlow",
-      "OpenCV",
-      "Machine Learning",
-      "Signal Processing",
+      "System Architecture",
     ],
     linux: [
       "Arch Linux (Daily Driver)",
-      "Linux Internals",
+      "Hyprland WM",
+      "Quickshell",
       "Bash & Shell Scripting",
       "Systemd",
       "Process & Memory Management",
-      "Networking Tools (ip, ss, tcpdump)",
-      "Package Management (pacman, AUR)",
-      "Permissions & Filesystems",
-      "Performance Tuning",
+      "Hardware-Aware Optimization",
     ],
     tools: [
+      "Cursor",
+      "Claude Code",
+      "GitHub Copilot",
       "Git",
-      "Postman",
       "VS Code",
       "Docker (Basics)",
-      "JWT Authentication",
-      "CI/CD",
     ],
   };
 
@@ -63,26 +61,24 @@ const About = () => {
               <p>
                 I'm a Bachelor of Engineering student in Computer Engineering at Thapar Institute of Engineering & Technology, maintaining a{" "}
                 <span className="font-bold text-black dark:text-white">CGPA of 8.88/10.0</span>. 
-                I specialize in Full-Stack Development and Machine Learning, with hands-on experience building production-grade applications using the MERN stack.
+                I specialize in AI Engineering and Full-Stack Architecture, building production-grade intelligence into highly scalable platforms.
               </p>
 
               <p>
-                I have strong experience in machine learning using Python and Scikit-learn, where I built EEG signal classification pipelines achieving{" "}
-                <span className="font-bold text-black dark:text-white">99.23% accuracy</span> for ADHD detection. 
-                Alongside this, I’ve developed scalable web platforms with real-time analytics and clean backend architectures.
+                My focus lies in applied AI and advanced retrieval architectures. I have engineered enterprise-grade semantic search engines using{" "}
+                <span className="font-bold text-black dark:text-white">GraphRAG and multimodal ingestion</span> to classify unstructured data, 
+                alongside building robust machine learning pipelines that achieved 99.23% accuracy for EEG-based ADHD detection.
               </p>
 
               <p>
-                I’m genuinely obsessed with Linux. I’ve been using{" "}
-                <span className="font-bold text-black dark:text-white">Arch Linux as my daily driver for over 2 years</span>, 
-                and I’m deeply comfortable working at the system level — from shell scripting and debugging processes to tuning performance, 
-                managing services with systemd, and understanding how things work under the hood.
+                I’m genuinely obsessed with system-level optimization and Linux. I’ve been using{" "}
+                <span className="font-bold text-black dark:text-white">Arch Linux with Hyprland</span> as my daily driver for over 2 years. 
+                Whether I'm developing custom desktop utilities with Quickshell or orchestrating local LLM inference on resource-constrained APUs (like my Ryzen 5 3500U / Vega 8 setup), I am deeply comfortable tuning performance, managing memory, and understanding systems under the hood.
               </p>
 
               <p>
-                What drives me is building efficient, reliable systems — whether that’s optimizing backend APIs, 
-                engineering robust ML pipelines, or squeezing performance out of a Linux environment. 
-                I enjoy understanding software end-to-end, from hardware-aware execution to user-facing applications.
+                What drives me is building efficient, reliable systems — whether that’s engineering zero-latency AI search pipelines, 
+                optimizing local language models, or squeezing maximum performance out of a development environment. I enjoy understanding software end-to-end, from hardware-aware execution to the final user experience.
               </p>
             </div>
           </div>
@@ -93,13 +89,13 @@ const About = () => {
 
             <div className="space-y-8">
               
-              {/* Software & Full-Stack */}
+              {/* AI Engineering */}
               <div>
                 <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Software & Full-Stack Development
+                  AI Engineering & Machine Learning
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {skills.fullstack.map((skill) => (
+                  {skills.ai_engineering.map((skill) => (
                     <span
                       key={skill}
                       className="px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-full text-sm font-medium border border-border hover:border-black dark:hover:border-white transition-colors"
@@ -110,13 +106,13 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Machine Learning */}
+              {/* Software & Full-Stack */}
               <div>
                 <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Machine Learning & Signal Processing
+                  Software Engineering & Web
                 </h4>
                 <div className="flex flex-wrap gap-2">
-                  {skills.ml.map((skill) => (
+                  {skills.software.map((skill) => (
                     <span
                       key={skill}
                       className="px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-full text-sm font-medium border border-border hover:border-black dark:hover:border-white transition-colors"
@@ -130,7 +126,7 @@ const About = () => {
               {/* Linux */}
               <div>
                 <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Linux & Systems
+                  Linux & System Architecture
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {skills.linux.map((skill) => (
@@ -147,7 +143,7 @@ const About = () => {
               {/* Tools */}
               <div>
                 <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-4">
-                  Developer Tools & Ecosystem
+                  AI Dev Tools & Ecosystem
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {skills.tools.map((skill) => (
