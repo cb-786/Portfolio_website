@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code2, Trophy, TrendingUp, Target, Github, Medal } from "lucide-react";
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Sector } from "recharts";
 
+// ... rest of your code remains exactly the same
 // --- Types ---
 interface LeetCodeStats {
   totalSolved: number;
